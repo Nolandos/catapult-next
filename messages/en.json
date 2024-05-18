@@ -1,4 +1,17 @@
 {
+  "common": {
+    "catapult": "Catapult",
+    "catomoto": "Catomoto"
+  },
+  "footer": {
+    "twitterCatamotoLink": "FollowUsOnTwitter",
+    "telegramCatomotoLink": "JoinUsOnTelegram"
+  },
+  "header": {
+    "launchpad": "Launchpad",
+    "connectWalletBtn": "Connect Wallet",
+    "disconnectWalletBtn": "Disconnect"
+  },
   "Index": {
     "title": "Hello world!"
   }

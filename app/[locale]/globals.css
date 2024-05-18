@@ -4,7 +4,7 @@
 
 @layer base {
     :root {
-        --background: 240 10% 3.9%;
+        --background: 210, 4%, 11%, 1;
         --foreground: 0 0% 98%;
         --card: 240 10% 3.9%;
         --card-foreground: 0 0% 98%;
@@ -24,6 +24,7 @@
         --input: 240 3.7% 15.9%;
         --ring: 240 4.9% 83.9%;
         --radius: 0.5rem;
+        --gradient-background: linear-gradient(to bottom, hsla(44, 87%, 56%, 0.1), hsla(210, 4%, 11%, 0.1));
     }
 }
 
