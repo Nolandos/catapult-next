@@ -20,7 +20,9 @@
     ]
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-slot": "^1.0.2",
+    "@tanstack/react-query": "^5.36.2",
     "@typescript-eslint/parser": "7.9.0",
     "accept-language": "3.0.18",
     "class-variance-authority": "^0.7.0",
@@ -34,7 +36,9 @@
     "react-dom": "18",
     "sharp": "0.33.3",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "viem": "^2.10.9",
+    "wagmi": "^2.9.2"
   },
   "devDependencies": {
     "@commitlint/cli": "19.3.0",
