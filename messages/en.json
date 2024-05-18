@@ -13,6 +13,10 @@
     "disconnectWalletBtn": "Disconnect"
   },
   "Index": {
-    "title": "Hello world!"
+    "title": "Hello world!",
+    "hero": {
+      "title": "CATAPULT the best meme launchpad",
+      "subtitle": "Fueling innovation daily"
+    }
   }
 }

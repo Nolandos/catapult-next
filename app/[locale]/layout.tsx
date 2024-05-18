@@ -31,7 +31,7 @@ const LocaleLayout = async ({
         <NextIntlClientProvider messages={messages}>
           <Providers>
             <Header />
-            <main className="flex-grow py-6 md:py-12 justify-stretch w-full items-stretch flex">
+            <main className="flex-grow justify-stretch w-full items-stretch flex">
               {children}
             </main>
             <Footer />
