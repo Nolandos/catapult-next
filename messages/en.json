@@ -17,6 +17,14 @@
     "hero": {
       "title": "CATAPULT the best meme launchpad",
       "subtitle": "Fueling innovation daily"
+    },
+    "liveAndOngoingProjects": {
+      "title": "Live & ongoing projects",
+      "totalRiseLabel": "Total raise",
+      "initialMarketCapLabel": "Initial Market Cap",
+      "startsInLabel": "Starts in",
+      "endsInLabel": "Ends in",
+      "participateBtn": "Participate"
     }
   }
 }

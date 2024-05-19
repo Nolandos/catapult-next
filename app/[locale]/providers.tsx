@@ -10,7 +10,7 @@ const Providers = ({children}: { children: ReactNode }) => {
   const queryClient = new QueryClient();
 
   return (
-    <WagmiProvider config={config('ef27756cb7e71c030c568b2a4d1a2c8a')}>
+    <WagmiProvider config={config(process.env.NEXT_PUBLIC_WALLET_CONNECTED_PROJECT_ID || '')}>
       <QueryClientProvider client={queryClient}>
         <ConnectWalletDialogProvider>
           {children}

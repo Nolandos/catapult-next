@@ -28,9 +28,17 @@ const config = {
       },
       backgroundImage: {
         'gradient-background': 'var(--gradient-background)',
+        'gradient-card': 'var(--gradient-card)',
+        'gradient-card-secondary': 'var(--gradient-card-secondary)',
         hero: 'url("/assets/images/hero.jpg")',
         'gradient-radial':
           'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
+      },
+      boxShadow: {
+        'card-shadow': 'var(--shadow-card)',
+      },
+      borderImageSource: {
+        'cat-linear-border-card': 'var(--cat-linear-border-card)',
       },
       gradientColorStops: {
         start: 'rgba(240, 189, 47, 0.05)',

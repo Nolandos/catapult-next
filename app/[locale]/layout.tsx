@@ -31,7 +31,7 @@ const LocaleLayout = async ({
         <NextIntlClientProvider messages={messages}>
           <Providers>
             <Header />
-            <main className="flex-grow justify-stretch w-full items-stretch flex">
+            <main className="flex-grow justify-stretch w-full items-stretch flex flex-col pb-6">
               {children}
             </main>
             <Footer />
