@@ -3,12 +3,15 @@ import localFont from 'next/font/local';
 import LiveAndOngoingProjectsCard from '@/components/page/index/LiveAndOngoingProjectsCard/LiveAndOngoingProjectsCard';
 import {getProjects} from '@/lib/strapi/project';
 import {Project} from '@/utils/types.common';
+import {clsx} from 'clsx';
+import EndedProject from '@/components/page/index/EndedProject/EndedProject';
 
 const namecat = localFont({src: '../../public/assets/fonts/Namecat.ttf'});
+const sectionStyles = clsx('container flex flex-col items-center min-h-[400px]');
 
 const Index = async () => {
   const t = await getTranslations('Index');
-  const response: Project[] = await getProjects();
+  const response: Project[] | null = await getProjects();
 
   const checkDate = (isoDate: string) => {
     const now = new Date();
@@ -26,17 +29,31 @@ const Index = async () => {
         </h1>
         <p>{t('hero.subtitle')}</p>
       </section>
-      <section id="live-and-ongoing projects" className="container flex flex-col items-center">
+      <section id="live-and-ongoing projects" className={sectionStyles}>
         <h2 className="w-full text-4xl font-bold mb-11 pl-8">
           {t('liveAndOngoingProjects.title')}
           :
         </h2>
         {response
-          .filter(({attributes: {idoEnds}}) => checkDate(idoEnds))
-          .sort(compareDates)
-          .map((project) => (
-            <LiveAndOngoingProjectsCard project={project} />
+          ?.filter(({
+            attributes: {idoEnds},
+          }) => checkDate(idoEnds))
+          ?.sort(compareDates)
+          ?.map((project) => (
+            <LiveAndOngoingProjectsCard key={project.id} project={project} />
           ))}
+      </section>
+      <section id="ended-projects" className={sectionStyles}>
+        <h2 className="w-full text-4xl font-bold mb-11 pl-8">
+          {t('endedProjects.title')}
+          :
+        </h2>
+        <EndedProject endedProjects={
+          response
+            ?.filter(({attributes: {idoEnds}}) => !checkDate(idoEnds))
+            ?.sort(compareDates)
+        }
+        />
       </section>
     </div>
   );

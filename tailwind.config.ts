@@ -19,6 +19,7 @@ const config = {
       },
       screens: {
         DEFAULT: '1440px',
+        'max-950': {max: '950px'},
       },
     },
     extend: {
@@ -30,12 +31,14 @@ const config = {
         'gradient-background': 'var(--gradient-background)',
         'gradient-card': 'var(--gradient-card)',
         'gradient-card-secondary': 'var(--gradient-card-secondary)',
+        'ended-project-card-gradient': 'var(--ended-project-card-gradient)',
         hero: 'url("/assets/images/hero.jpg")',
         'gradient-radial':
           'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
       },
       boxShadow: {
         'card-shadow': 'var(--shadow-card)',
+        'ended-project-card-shadow': 'var(--ended-project-card-shadow)',
       },
       borderImageSource: {
         'cat-linear-border-card': 'var(--cat-linear-border-card)',

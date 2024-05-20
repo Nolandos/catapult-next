@@ -25,6 +25,13 @@
       "startsInLabel": "Starts in",
       "endsInLabel": "Ends in",
       "participateBtn": "Participate"
+    },
+    "endedProjects": {
+      "title": "Ended projects",
+      "athLabel": "ATH",
+      "totalRaiseLabel": "Total Raise",
+      "oversubscribedLabel": "Oversubscribed",
+      "detailsBtn": "Details"
     }
   }
 }

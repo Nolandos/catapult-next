@@ -13,3 +13,4 @@ export * from './disconnect-wallet.svg';
 export * from './status-connected.svg';
 export * from './fee.svg';
 export * from './wallet.svg';
+export * from './ellipse.svg';

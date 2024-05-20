@@ -30,6 +30,8 @@ export type Project = {
     publishedAt: string,
     slug: string,
     totalRaise: string,
+    allTimeHigh: string,
+    oversubscribed: string,
     image: {
       data: {
         id: number,
