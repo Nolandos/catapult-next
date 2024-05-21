@@ -33,6 +33,27 @@
         --ended-project-card-shadow: 0px 4px 9px 2px #00000040;
     }
 
+    /* Custom scrollbar styles */
+    /* WebKit (Chrome, Safari, Edge) */
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #7b7b7b;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #f0bd2f;
+        border-radius: 6px;
+    }
+
+    /* Microsoft Edge and IE */
+    * {
+        scrollbar-color: #f0bd2f #7b7b7b;
+        scrollbar-width: auto;
+    }
+
 }
 
 @layer base {

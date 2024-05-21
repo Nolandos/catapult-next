@@ -32,6 +32,11 @@
       "totalRaiseLabel": "Total Raise",
       "oversubscribedLabel": "Oversubscribed",
       "detailsBtn": "Details"
+    },
+    "howToParticipate": {
+      "title": "How to participate",
+      "annotation": "The form of participation in the IDOs can be changed through a community vote in the future.",
+      "getListed": "Get Listed"
     }
   }
 }

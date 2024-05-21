@@ -17,7 +17,7 @@ const EndedProject: FC<EndedProjectProps> = ({endedProjects}) => {
   const settings = {
     dots: false,
     infinite: true,
-    autoplay: false,
+    autoplay: true,
     speed: 1500,
     autoplaySpeed: 3500,
     slidesToShow: (endedProjects && endedProjects?.length < 3) ? endedProjects?.length : 3,

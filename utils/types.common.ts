@@ -62,3 +62,15 @@ export type Project = {
     }
   }
 }
+
+export type ParticipateInformation = {
+  id: number,
+  attributes: {
+    title: string,
+    description: string,
+    ordinalNumber: number,
+    createdAt: string,
+    updatedAt: string,
+    publishedAt: string
+  }
+}
