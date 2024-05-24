@@ -9,3 +9,7 @@ export enum DATE_STATUS {
   DURING = 'during',
   AFTER = 'after'
 }
+
+export enum CURRENCY_ENUM {
+  USDT = 'USDT'
+}
