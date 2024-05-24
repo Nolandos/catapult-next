@@ -55,7 +55,10 @@
       "launchPrice": "Launch Price",
       "tokenAddress": "Token Address",
       "endsIn": "Ends in",
-      "totalLockedCATA": "Total locked CATA"
+      "totalLockedCATA": "Total locked CATA",
+      "endedInfo": "Ended",
+      "tbaInfo": "TBA",
+      "calculatingInfo": "Calculating"
     }
   }
 }

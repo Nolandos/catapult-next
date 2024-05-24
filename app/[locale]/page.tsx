@@ -27,6 +27,16 @@ const Index = async () => {
     return convertISO >= now;
   };
 
+  const liveAndOngoingProjects: Project[] | undefined = projectResponse
+    ?.filter(({
+      attributes: {idoEnds},
+    }) => checkDate(idoEnds));
+
+  const endedProject: Project[] | undefined = projectResponse
+    ?.filter(({
+      attributes: {idoEnds},
+    }) => !checkDate(idoEnds));
+
   const compareDates = (a: Project, b: Project) => new Date(a.attributes.idoStarts).getTime() - new Date(b.attributes.idoStarts).getTime();
   const compareParticipate = (a: ParticipateInformation, b: ParticipateInformation) => a.attributes.ordinalNumber - b.attributes.ordinalNumber;
 
@@ -38,32 +48,28 @@ const Index = async () => {
         </h1>
         <p>{t('hero.subtitle')}</p>
       </section>
-      <section id="live-and-ongoing projects" className={sectionStyles}>
-        <h2 className="w-full max-w-[1220px] text-4xl font-bold mb-11 ">
-          {t('liveAndOngoingProjects.title')}
-          :
-        </h2>
-        {projectResponse
-          ?.filter(({
-            attributes: {idoEnds},
-          }) => checkDate(idoEnds))
-          ?.sort(compareDates)
-          ?.map((project) => (
-            <LiveAndOngoingProjectsCard key={project.id} project={project} />
-          ))}
-      </section>
-      <section id="ended-projects" className={sectionStyles}>
-        <h2 className="w-full max-w-[1220px] text-4xl font-bold mb-11 ">
-          {t('endedProjects.title')}
-          :
-        </h2>
-        <EndedProject endedProjects={
-          projectResponse
-            ?.filter(({attributes: {idoEnds}}) => !checkDate(idoEnds))
+      {(liveAndOngoingProjects && liveAndOngoingProjects.length > 0) && (
+        <section id="live-and-ongoing projects" className={sectionStyles}>
+          <h2 className="w-full max-w-[1220px] text-4xl font-bold mb-11 ">
+            {t('liveAndOngoingProjects.title')}
+            :
+          </h2>
+          {liveAndOngoingProjects
             ?.sort(compareDates)
-        }
-        />
-      </section>
+            ?.map((project) => (
+              <LiveAndOngoingProjectsCard key={project.id} project={project} />
+            ))}
+        </section>
+      )}
+      {(endedProject && endedProject.length > 0) && (
+        <section id="ended-projects" className={sectionStyles}>
+          <h2 className="w-full max-w-[1220px] text-4xl font-bold mb-11 ">
+            {t('endedProjects.title')}
+            :
+          </h2>
+          <EndedProject endedProjects={endedProject?.sort(compareDates)} />
+        </section>
+      )}
       <section id="how-to-participate" className={sectionStyles}>
         <h2 className="w-full max-w-[1220px] text-4xl font-bold mb-6 ">
           {t('howToParticipate.title')}

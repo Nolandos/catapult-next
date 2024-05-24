@@ -34,6 +34,7 @@ export type Project = {
     oversubscribed: string,
     shortDescription: string,
     socialLinks: { [key: string]: string; } | null,
+    totalLockedCATA: string,
     image: {
       data: {
         id: number,
