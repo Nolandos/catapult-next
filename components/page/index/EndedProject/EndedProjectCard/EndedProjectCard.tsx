@@ -46,14 +46,16 @@ const EndedProjectCard: FC<EndedProjectCardProps> = ({project}) => {
     >
       <CardContent className="p-3 pt-3 flex flex-col">
         <div className="hidden w-full h-[135px] justify-center items-center pt-3 md:flex">
-          {/* <EllipseIcon className="w-[135px] h-[135px]" /> */}
-          <Image
-            className="rounded-full w-[95px] h-[95px]"
-            src={imageUrl}
-            width={95}
-            height={95}
-            alt={`${name}-img`}
-          />
+          <div
+            className="border border-[#1B1C1D] rounded-full relative w-[95px] h-[95px] overflow-hidden"
+          >
+            <Image
+              className="object-cover"
+              src={imageUrl}
+              layout="fill"
+              alt={`${name}-img`}
+            />
+          </div>
         </div>
         <h3 className="w-full flex justify-center items-center font-bold text-2xl mt-4 md:mt-6">{name}</h3>
         <div

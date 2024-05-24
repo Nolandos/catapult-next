@@ -7,6 +7,7 @@ import {Spinner} from '@/components/icons/spinner';
 import {ConnectWalletDialogContext} from '@/providers/connect-wallet-provider';
 import {useTranslations} from 'next-intl';
 import {WAGMI_ACCOUNT_STATUS} from '@/utils/enums.common';
+import {cutAddress} from '@/utils/utils';
 
 const ConnectWalletButton = () => {
   const t = useTranslations('');
@@ -22,7 +23,7 @@ const ConnectWalletButton = () => {
   } = WAGMI_ACCOUNT_STATUS;
 
   const cutedAddress = address
-    ? `${address.slice(0, 6)}...${address.slice(-4)}`
+    ? cutAddress(address)
     : '';
 
   return (

@@ -32,6 +32,8 @@ export type Project = {
     totalRaise: string,
     allTimeHigh: string,
     oversubscribed: string,
+    shortDescription: string,
+    socialLinks: { [key: string]: string; } | null,
     image: {
       data: {
         id: number,

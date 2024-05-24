@@ -31,6 +31,7 @@ const config = {
         'gradient-background': 'var(--gradient-background)',
         'gradient-card': 'var(--gradient-card)',
         'gradient-card-secondary': 'var(--gradient-card-secondary)',
+        'gradient-card-third': 'var(--gradient-card-third)',
         'ended-project-card-gradient': 'var(--ended-project-card-gradient)',
         hero: 'url("/assets/images/hero.jpg")',
         'gradient-radial':
@@ -86,6 +87,10 @@ const config = {
         },
         black: '#000000',
         white: '#FFFFFF',
+        y: {
+          500: '#F0BD2F',
+          600: '#FFC107',
+        },
         g: {
           800: '#1B1C1D',
           700: '#25272D',
@@ -99,10 +104,6 @@ const config = {
           500: '#39D3C8',
           400: '#3FEDE0',
           100: '#CDFFFB',
-        },
-        y: {
-          500: '#F0BD2F',
-          600: '#FFC107',
         },
       },
       borderRadius: {
