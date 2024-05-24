@@ -5,7 +5,16 @@ const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['thumbs2.imgbox.com', process.env.CMS_DOMAIN],
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: process.env.CMS_DOMAIN,
+      },
+      {
+        protocol: 'https',
+        hostname: process.env.CMS_DOMAIN,
+      },
+    ],
   },
 };
 

@@ -50,7 +50,7 @@ const LiveAndOngoingProjectsCard: FC<LiveAndOngoingProjectsCardTypes> = ({
 
   return (
     <Card
-      className="mb-6 min-h-[360px] w-full max-w-[525px] justify-center flex items-center bg-gradient-card shadow-card-shadow card-with-border md:max-w-[550px] lg:max-w-[1150px]"
+      className="mb-6 min-h-[360px] w-full max-w-[525px] justify-center flex items-center bg-gradient-card shadow-card-shadow card-with-border rounded-[30px] before:rounded-[30px] md:max-w-[550px] lg:max-w-[1150px]"
     >
       <CardContent className="p-3 flex flex-col w-full items-center justify-center lg:flex-row lg:w-full lg:p-6">
         <div className="flex w-full h-[250px] items-center lg:min-w-[472px] lg:w-2/4 lg:h-full">

@@ -1,4 +1,3 @@
-import process from 'process';
 import {include} from 'named-urls';
 
 export default {
@@ -16,5 +15,5 @@ export default {
   // External links
   twitterCatamoto: 'https://twitter.com/4catamoto',
   telegramMatoto: 'https://t.me/Catamoto',
-  accountSettingsUrl: `${process.env.NEXT_PUBLIC_KEYCLOAK_ISSUER}/account`,
+  getListed: 'https://docs.google.com/forms/d/e/1FAIpQLSdtP9dT8IHc0OGqmRvQGipvOBWqPzSK3wp689FDYjddvQ4PLg/viewform',
 };

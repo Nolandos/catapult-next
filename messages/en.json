@@ -25,6 +25,37 @@
       "startsInLabel": "Starts in",
       "endsInLabel": "Ends in",
       "participateBtn": "Participate"
+    },
+    "endedProjects": {
+      "title": "Ended projects",
+      "athLabel": "ATH",
+      "totalRaiseLabel": "Total Raise",
+      "oversubscribedLabel": "Oversubscribed",
+      "detailsBtn": "Details"
+    },
+    "howToParticipate": {
+      "title": "How to participate",
+      "annotation": "The form of participation in the IDOs can be changed through a community vote in the future.",
+      "getListed": "Get Listed"
+    }
+  },
+  "Project": {
+    "overviewTitle": "Overview",
+    "chips": {
+      "idoStarts": "IDO starts",
+      "idoEnds": "IDO ends",
+      "claimStarts": "Claim starts",
+      "listing": "Listing"
+    },
+    "cards": {
+      "blockchain": "Blockchain",
+      "totalSupply": "Total Supply",
+      "initialMarketCap": "Initial Market Cap",
+      "fullyDilutedMarketCap": "Fully Diluted Market Cap",
+      "launchPrice": "Launch Price",
+      "tokenAddress": "Token Address",
+      "endsIn": "Ends in",
+      "totalLockedCATA": "Total locked CATA"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "next-14-app",
+  "name": "catapult-next",
   "version": "0.1.0",
   "engines": {
     "node": ">=22.1.0"
@@ -20,26 +20,30 @@
     ]
   },
   "dependencies": {
-    "@radix-ui/react-dialog": "^1.0.5",
-    "@radix-ui/react-slot": "^1.0.2",
-    "@tanstack/react-query": "^5.36.2",
+    "@radix-ui/react-dialog": "1.0.5",
+    "@radix-ui/react-slot": "1.0.2",
+    "@tanstack/react-query": "5.36.2",
+    "@types/react-slick": "^0.23.13",
     "@typescript-eslint/parser": "7.9.0",
     "accept-language": "3.0.18",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
+    "class-variance-authority": "0.7.0",
+    "clsx": "2.1.1",
     "eslint-config-airbnb": "19.0.4",
+    "html-react-parser": "^5.1.10",
     "lint-staged": "15.2.2",
-    "lucide-react": "^0.378.0",
-    "named-urls": "^2.0.1",
+    "lucide-react": "0.378.0",
+    "named-urls": "2.0.1",
     "next": "14.2.3",
     "next-intl": "3.14.0",
     "react": "18",
     "react-dom": "18",
+    "react-slick": "0.30.2",
     "sharp": "0.33.3",
-    "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7",
-    "viem": "^2.10.9",
-    "wagmi": "^2.9.2"
+    "slick-carousel": "^1.8.1",
+    "tailwind-merge": "2.3.0",
+    "tailwindcss-animate": "1.0.7",
+    "viem": "2.10.9",
+    "wagmi": "2.9.2"
   },
   "devDependencies": {
     "@commitlint/cli": "19.3.0",
@@ -47,12 +51,12 @@
     "@types/react": "18",
     "@types/react-dom": "18",
     "@typescript-eslint/eslint-plugin": "7.9.0",
-    "autoprefixer": "^10.4.19",
+    "autoprefixer": "10.4.19",
     "eslint": "8",
     "eslint-config-next": "14.2.3",
     "husky": "9.0.11",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3",
+    "postcss": "8.4.38",
+    "tailwindcss": "3.4.3",
     "typescript": "5"
   }
 }

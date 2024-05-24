@@ -30,6 +30,10 @@ export type Project = {
     publishedAt: string,
     slug: string,
     totalRaise: string,
+    allTimeHigh: string,
+    oversubscribed: string,
+    shortDescription: string,
+    socialLinks: { [key: string]: string; } | null,
     image: {
       data: {
         id: number,
@@ -58,5 +62,17 @@ export type Project = {
         }
       }
     }
+  }
+}
+
+export type ParticipateInformation = {
+  id: number,
+  attributes: {
+    title: string,
+    description: string,
+    ordinalNumber: number,
+    createdAt: string,
+    updatedAt: string,
+    publishedAt: string
   }
 }

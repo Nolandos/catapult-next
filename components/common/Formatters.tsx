@@ -186,3 +186,21 @@ export const DateFormatter = ({
 
   return {formattedDate};
 };
+
+export const formatChipDate = (dateString: string): string => {
+  const date = new Date(dateString);
+
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const day = date.getUTCDate();
+  const month = months[date.getUTCMonth()];
+
+  let hours = date.getUTCHours();
+  const minutes = date.getUTCMinutes();
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  hours %= 12;
+  hours = hours || 12;
+
+  const minutesString = minutes < 10 ? `0${minutes}` : minutes;
+
+  return `${day} ${month} ${hours}:${minutesString}${ampm} UTC`;
+};
