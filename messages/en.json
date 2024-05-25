@@ -1,16 +1,18 @@
 {
   "common": {
     "catapult": "Catapult",
-    "catomoto": "Catomoto"
+    "catomoto": "Catomoto",
+    "connectWalletBtn": "Connect Wallet",
+    "disconnectWalletBtn": "Disconnect",
+    "unsupportedNetworkInfo": "Unsupported network",
+    "switchNetworkInfo": " Please switch to one of the supported networks."
   },
   "footer": {
     "twitterCatamotoLink": "FollowUsOnTwitter",
     "telegramCatomotoLink": "JoinUsOnTelegram"
   },
   "header": {
-    "launchpad": "Launchpad",
-    "connectWalletBtn": "Connect Wallet",
-    "disconnectWalletBtn": "Disconnect"
+    "launchpad": "Launchpad"
   },
   "Index": {
     "title": "Hello world!",
@@ -54,11 +56,22 @@
       "fullyDilutedMarketCap": "Fully Diluted Market Cap",
       "launchPrice": "Launch Price",
       "tokenAddress": "Token Address",
+      "startsIn": "Starts in",
       "endsIn": "Ends in",
       "totalLockedCATA": "Total locked CATA",
       "endedInfo": "Ended",
       "tbaInfo": "TBA",
       "calculatingInfo": "Calculating"
+    },
+    "startedProject": {
+      "totallyLockedInfo": "Total locked CATA"
+    },
+    "buyTokens": {
+      "alreadyLockedInfo": "You already locked",
+      "amount": "Amount",
+      "max": "Max",
+      "approve": "Approve",
+      "lock": "Lock"
     }
   }
 }

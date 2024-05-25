@@ -16,11 +16,12 @@ import {CountdownTimer} from '@/components/common/Countdown';
 import InfoCard from '@/components/page/project/InfoCard/InfoCard';
 import {cutAddress} from '@/utils/utils';
 import {DiamondIcon} from '@/components/icons/diamond.svg';
+import StartedProject from '@/components/page/project/StartedProject/StartedProject';
 
 type ProjectDetailsProps = {
-  params: {
-    slug: string;
-  }
+    params: {
+        slug: string;
+    }
 }
 
 const socialsIcons: { name: string, icon: ReactNode }[] = [
@@ -126,75 +127,75 @@ const ProjectDetails: FC<ProjectDetailsProps> = async ({params}) => {
     },
   ];
   const cardsData: {
-    id: string,
-    label: string | ReactNode,
-    value: string | ReactNode,
-    hidden?: boolean,
-    ongoingStatus?: boolean
-  }[] = [
-    {
-      id: 'blockchain',
-      label: t('cards.blockchain'),
-      value: <span className="uppercase">{blockchain}</span>,
-    },
-    {
-      id: 'totalSupply',
-      label: t('cards.totalSupply'),
-      value: <CryptoCurrencyFormatter value={parseFloat(totalSupply)} currency="" />,
-    },
-    {
-      id: 'initialMarketCap',
-      label: t('cards.initialMarketCap'),
-      value: <CryptoCurrencyFormatter value={parseFloat(initialMarketCap)} currency={USDT} />,
-    },
-    {
-      id: 'fullyDilutedMarketCap',
-      label: t('cards.fullyDilutedMarketCap'),
-      value: <CryptoCurrencyFormatter value={parseFloat(fullyDilutedMarketCap)} currency={USDT} />,
-    },
-    {
-      id: 'launchPrice',
-      label: t('cards.launchPrice'),
-      value: launchPrice,
-    },
-    {
-      id: 'tokenAddress',
-      label: t('cards.tokenAddress'),
-      value: (tokenAddress && tokenAddress.trim() !== '') ? (
-        <div className="w-full flex justify-end text-y-500">
-          <Link
-            href={socialLinks?.network || ''}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <NewCardIcon />
-          </Link>
-          <span className="ml-[16px]">{cutAddress(tokenAddress)}</span>
-        </div>
-      ) : <span className="ml-[16px]">{t('cards.tbaInfo')}</span>,
-    },
-    {
-      id: 'endsIn',
-      label: new Date(idoEnds) >= new Date() ? t('cards.endsIn') : t('cards.endedInfo'),
-      value: (
-        <span className="text-c-500" suppressHydrationWarning>
-          {new Date(idoEnds) >= new Date() ? <CountdownTimer targetDate={new Date(idoEnds).getTime()} /> : ''}
-        </span>
-      ),
-      ongoingStatus: new Date(idoEnds) >= new Date() && new Date() > new Date(idoStarts),
-    },
-    {
-      id: 'totalLockedCATA',
-      label: t('cards.totalLockedCATA'),
-      value: (
-        (totalLockedCATA && totalLockedCATA.trim() !== '')
-          ? <CryptoCurrencyFormatter value={parseFloat(totalLockedCATA)} currency="" />
-          : <span>{t('cards.calculatingInfo')}</span>
-      ),
-      hidden: new Date(idoEnds) >= new Date(),
-      ongoingStatus: new Date(idoEnds) <= new Date(),
-    },
-  ];
+        id: string,
+        label: string | ReactNode,
+        value: string | ReactNode,
+        hidden?: boolean,
+        ongoingStatus?: boolean
+    }[] = [
+      {
+        id: 'blockchain',
+        label: t('cards.blockchain'),
+        value: <span className="uppercase">{blockchain}</span>,
+      },
+      {
+        id: 'totalSupply',
+        label: t('cards.totalSupply'),
+        value: <CryptoCurrencyFormatter value={parseFloat(totalSupply)} currency="" />,
+      },
+      {
+        id: 'initialMarketCap',
+        label: t('cards.initialMarketCap'),
+        value: <CryptoCurrencyFormatter value={parseFloat(initialMarketCap)} currency={USDT} />,
+      },
+      {
+        id: 'fullyDilutedMarketCap',
+        label: t('cards.fullyDilutedMarketCap'),
+        value: <CryptoCurrencyFormatter value={parseFloat(fullyDilutedMarketCap)} currency={USDT} />,
+      },
+      {
+        id: 'launchPrice',
+        label: t('cards.launchPrice'),
+        value: launchPrice,
+      },
+      {
+        id: 'tokenAddress',
+        label: t('cards.tokenAddress'),
+        value: (tokenAddress && tokenAddress.trim() !== '') ? (
+          <div className="w-full flex justify-end text-y-500">
+            <Link
+              href={socialLinks?.network || ''}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <NewCardIcon />
+            </Link>
+            <span className="ml-[16px]">{cutAddress(tokenAddress)}</span>
+          </div>
+        ) : <span className="ml-[16px]">{t('cards.tbaInfo')}</span>,
+      },
+      {
+        id: 'endsIn',
+        label: new Date(idoEnds) >= new Date() ? t('cards.endsIn') : t('cards.endedInfo'),
+        value: (
+          <span className="text-c-500" suppressHydrationWarning>
+            {new Date(idoEnds) >= new Date() ? <CountdownTimer targetDate={new Date(idoEnds).getTime()} /> : ''}
+          </span>
+        ),
+        ongoingStatus: new Date(idoEnds) >= new Date() && new Date() > new Date(idoStarts),
+      },
+      {
+        id: 'totalLockedCATA',
+        label: t('cards.totalLockedCATA'),
+        value: (
+          (totalLockedCATA && totalLockedCATA.trim() !== '')
+            ? <CryptoCurrencyFormatter value={parseFloat(totalLockedCATA)} currency="" />
+            : <span>{t('cards.calculatingInfo')}</span>
+        ),
+        hidden: new Date(idoEnds) >= new Date(),
+        ongoingStatus: new Date(idoEnds) <= new Date(),
+      },
+    ];
 
   const imageUrl = `${process.env.NEXT_PUBLIC_CMS_ADDRESS}${thumbnail?.url || url || ''}` || '';
 
@@ -284,15 +285,34 @@ const ProjectDetails: FC<ProjectDetailsProps> = async ({params}) => {
                 <InfoCard key={id} info={cardData} />
               ))}
           </div>
-          <div className="w-full max-w-[450px] flex justify-center max-[1250px]:max-w-[100%] mt-[36px]">
+          <div
+            className="w-full max-w-[450px] flex flex-col items-center justify-center max-[1250px]:max-w-[100%] mt-[36px]"
+          >
             <div
               className="
-                relative w-full max-w-[320px] flex justify-center items-center mt-4 mb-[7px]
-                before:content-[''] before:absolute before:h-[1px] before:w-[125px] before:bg-c-500 before:left-0
-                after:content-[''] after:absolute after:h-[1px] after:w-[125px] after:bg-c-500 after:right-0"
+                                relative w-full max-w-[320px] flex justify-center items-center mt-4 mb-[7px]
+                                before:content-[''] before:absolute before:h-[1px] before:w-[125px] before:bg-c-500 before:left-0
+                                after:content-[''] after:absolute after:h-[1px] after:w-[125px] after:bg-c-500 after:right-0"
             >
               <DiamondIcon className="[&>path]:fill-c-500" />
             </div>
+
+            {/* Not started yet */}
+            {new Date(idoStarts) >= new Date() && (
+            <InfoCard info={{
+              label: t('cards.startsIn'),
+              value: (
+                <span className="text-y-500" suppressHydrationWarning>
+                  <CountdownTimer targetDate={new Date(idoStarts).getTime()} />
+                </span>
+              ),
+            }}
+            />
+            )}
+
+            {/* Started */}
+            {setDateStatuses(idoEnds, idoStarts) === DURING
+                            && <StartedProject />}
           </div>
         </div>
       </div>

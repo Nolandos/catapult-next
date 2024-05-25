@@ -20,6 +20,7 @@ const ConnectWalletButton = () => {
   const {
     CONNECTED,
     CONNECTING,
+    RECONNECTING,
   } = WAGMI_ACCOUNT_STATUS;
 
   const cutedAddress = address
@@ -29,16 +30,15 @@ const ConnectWalletButton = () => {
   return (
     <Button
       variant={status === CONNECTED ? 'outline' : 'default'}
-      disabled={status === CONNECTING}
+      disabled={status === CONNECTING || status === RECONNECTING}
       onClick={() => (status === CONNECTED ? disconnect() : openDialog())}
       className="space-x-2"
     >
-      {status === CONNECTING && <Spinner className="animate-spin h-5 w-5" />}
-
+      {(status === CONNECTING || status === RECONNECTING) && <Spinner className="animate-spin h-5 w-5" />}
       <span>
         {status === CONNECTED
-          ? `${t('header.disconnectWalletBtn')} ${cutedAddress}`
-          : t('header.connectWalletBtn')}
+          ? `${t('common.disconnectWalletBtn')} ${cutedAddress}`
+          : t('common.connectWalletBtn')}
       </span>
     </Button>
   );

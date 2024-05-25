@@ -81,7 +81,7 @@ export const ConnectWalletDialogProvider = ({
                   >
                     {Icon && <Icon className="" />}
 
-                    <span>{connector.name}</span>
+                    {connector.name}
                   </Button>
                 );
               })}

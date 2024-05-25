@@ -20,11 +20,14 @@
     ]
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.4.2",
     "@radix-ui/react-dialog": "1.0.5",
+    "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "1.0.2",
     "@tanstack/react-query": "5.36.2",
     "@types/react-slick": "^0.23.13",
     "@typescript-eslint/parser": "7.9.0",
+    "@wagmi/core": "^2.10.2",
     "accept-language": "3.0.18",
     "class-variance-authority": "0.7.0",
     "clsx": "2.1.1",
@@ -37,13 +40,15 @@
     "next-intl": "3.14.0",
     "react": "18",
     "react-dom": "18",
+    "react-hook-form": "^7.51.5",
     "react-slick": "0.30.2",
     "sharp": "0.33.3",
     "slick-carousel": "^1.8.1",
     "tailwind-merge": "2.3.0",
     "tailwindcss-animate": "1.0.7",
     "viem": "2.10.9",
-    "wagmi": "2.9.2"
+    "wagmi": "2.9.2",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@commitlint/cli": "19.3.0",
