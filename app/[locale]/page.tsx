@@ -4,7 +4,7 @@ import LiveAndOngoingProjectsCard from '@/components/page/index/LiveAndOngoingPr
 import {getParticipateInformation, getProjects} from '@/lib/strapi/project';
 import {ParticipateInformation, Project} from '@/utils/types.common';
 import {clsx} from 'clsx';
-import EndedProject from '@/components/page/index/EndedProject/EndedProject';
+import EndedProjects from '@/components/page/index/EndedProjects/EndedProjects';
 import ParticipateInfoCard from '@/components/page/index/ParticipateInfoCard/ParticipateInfoCard';
 import Button from '@/components/ui/button';
 import urls from '@/utils/urls';
@@ -42,7 +42,10 @@ const Index = async () => {
 
   return (
     <div id="index-page" className="flex flex-col gap-7">
-      <section id="hero" className="flex flex-col justify-center items-center bg-hero bg-cover w-full bg-no-repeat bg-center h-[440px]">
+      <section
+        id="hero"
+        className="flex flex-col justify-center items-center bg-hero bg-cover w-full bg-no-repeat bg-center h-[440px]"
+      >
         <h1 className={`${namecat.className} uppercase text-yellow-500 text-4xl md:text-[64px] mb-6 text-center`}>
           {t('hero.title')}
         </h1>
@@ -67,7 +70,7 @@ const Index = async () => {
             {t('endedProjects.title')}
             :
           </h2>
-          <EndedProject endedProjects={endedProject?.sort(compareDates)} />
+          <EndedProjects endedProjects={endedProject?.sort(compareDates)} />
         </section>
       )}
       <section id="how-to-participate" className={sectionStyles}>

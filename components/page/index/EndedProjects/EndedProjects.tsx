@@ -7,13 +7,13 @@ import 'slick-carousel/slick/slick-theme.css';
 import {ChevronLeft, ChevronRight} from 'lucide-react';
 import {Project} from '@/utils/types.common';
 import {clsx} from 'clsx';
-import EndedProjectCard from '@/components/page/index/EndedProject/EndedProjectCard/EndedProjectCard';
+import EndedProjectCard from '@/components/page/index/EndedProjects/EndedProjectCard/EndedProjectCard';
 
-type EndedProjectProps = {
+type EndedProjectsProps = {
   endedProjects: Project[] | undefined
 };
 
-const EndedProject: FC<EndedProjectProps> = ({endedProjects}) => {
+const EndedProjects: FC<EndedProjectsProps> = ({endedProjects}) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -65,7 +65,10 @@ const EndedProject: FC<EndedProjectProps> = ({endedProjects}) => {
     <div className={endedProjectSlider}>
       {endedProjects && endedProjects.length > 0
         && (
-          <Slider className="w-[100%] max-w-[310px] h-[350px] md:h-[520px] md:max-w-[none] md:w-[75%] lg:w-[760px] xl:w-[1140px]" {...settings}>
+          <Slider
+            className="w-[100%] max-w-[310px] h-[350px] md:h-[520px] md:max-w-[none] md:w-[75%] lg:w-[760px] xl:w-[1140px]"
+            {...settings}
+          >
             {endedProjects?.map(({
               id,
               attributes,
@@ -82,4 +85,4 @@ const EndedProject: FC<EndedProjectProps> = ({endedProjects}) => {
   );
 };
 
-export default EndedProject;
+export default EndedProjects;

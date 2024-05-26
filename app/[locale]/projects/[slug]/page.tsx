@@ -17,11 +17,12 @@ import InfoCard from '@/components/page/project/InfoCard/InfoCard';
 import {cutAddress} from '@/utils/utils';
 import {DiamondIcon} from '@/components/icons/diamond.svg';
 import StartedProject from '@/components/page/project/StartedProject/StartedProject';
+import EndedProject from '@/components/page/project/EndedProject/EndedProject';
 
 type ProjectDetailsProps = {
-    params: {
-        slug: string;
-    }
+  params: {
+    slug: string;
+  }
 }
 
 const socialsIcons: { name: string, icon: ReactNode }[] = [
@@ -77,6 +78,8 @@ const ProjectDetails: FC<ProjectDetailsProps> = async ({params}) => {
       launchPrice,
       tokenAddress,
       totalLockedCATA,
+      token,
+      withdrawalContractAddress,
       image: {
         data: {
           attributes: {
@@ -127,75 +130,75 @@ const ProjectDetails: FC<ProjectDetailsProps> = async ({params}) => {
     },
   ];
   const cardsData: {
-        id: string,
-        label: string | ReactNode,
-        value: string | ReactNode,
-        hidden?: boolean,
-        ongoingStatus?: boolean
-    }[] = [
-      {
-        id: 'blockchain',
-        label: t('cards.blockchain'),
-        value: <span className="uppercase">{blockchain}</span>,
-      },
-      {
-        id: 'totalSupply',
-        label: t('cards.totalSupply'),
-        value: <CryptoCurrencyFormatter value={parseFloat(totalSupply)} currency="" />,
-      },
-      {
-        id: 'initialMarketCap',
-        label: t('cards.initialMarketCap'),
-        value: <CryptoCurrencyFormatter value={parseFloat(initialMarketCap)} currency={USDT} />,
-      },
-      {
-        id: 'fullyDilutedMarketCap',
-        label: t('cards.fullyDilutedMarketCap'),
-        value: <CryptoCurrencyFormatter value={parseFloat(fullyDilutedMarketCap)} currency={USDT} />,
-      },
-      {
-        id: 'launchPrice',
-        label: t('cards.launchPrice'),
-        value: launchPrice,
-      },
-      {
-        id: 'tokenAddress',
-        label: t('cards.tokenAddress'),
-        value: (tokenAddress && tokenAddress.trim() !== '') ? (
-          <div className="w-full flex justify-end text-y-500">
-            <Link
-              href={socialLinks?.network || ''}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <NewCardIcon />
-            </Link>
-            <span className="ml-[16px]">{cutAddress(tokenAddress)}</span>
-          </div>
-        ) : <span className="ml-[16px]">{t('cards.tbaInfo')}</span>,
-      },
-      {
-        id: 'endsIn',
-        label: new Date(idoEnds) >= new Date() ? t('cards.endsIn') : t('cards.endedInfo'),
-        value: (
-          <span className="text-c-500" suppressHydrationWarning>
-            {new Date(idoEnds) >= new Date() ? <CountdownTimer targetDate={new Date(idoEnds).getTime()} /> : ''}
-          </span>
-        ),
-        ongoingStatus: new Date(idoEnds) >= new Date() && new Date() > new Date(idoStarts),
-      },
-      {
-        id: 'totalLockedCATA',
-        label: t('cards.totalLockedCATA'),
-        value: (
-          (totalLockedCATA && totalLockedCATA.trim() !== '')
-            ? <CryptoCurrencyFormatter value={parseFloat(totalLockedCATA)} currency="" />
-            : <span>{t('cards.calculatingInfo')}</span>
-        ),
-        hidden: new Date(idoEnds) >= new Date(),
-        ongoingStatus: new Date(idoEnds) <= new Date(),
-      },
-    ];
+    id: string,
+    label: string | ReactNode,
+    value: string | ReactNode,
+    hidden?: boolean,
+    ongoingStatus?: boolean
+  }[] = [
+    {
+      id: 'blockchain',
+      label: t('cards.blockchain'),
+      value: <span className="uppercase">{blockchain}</span>,
+    },
+    {
+      id: 'totalSupply',
+      label: t('cards.totalSupply'),
+      value: <CryptoCurrencyFormatter value={parseFloat(totalSupply)} currency="" />,
+    },
+    {
+      id: 'initialMarketCap',
+      label: t('cards.initialMarketCap'),
+      value: <CryptoCurrencyFormatter value={parseFloat(initialMarketCap)} currency={USDT} />,
+    },
+    {
+      id: 'fullyDilutedMarketCap',
+      label: t('cards.fullyDilutedMarketCap'),
+      value: <CryptoCurrencyFormatter value={parseFloat(fullyDilutedMarketCap)} currency={USDT} />,
+    },
+    {
+      id: 'launchPrice',
+      label: t('cards.launchPrice'),
+      value: launchPrice,
+    },
+    {
+      id: 'tokenAddress',
+      label: t('cards.tokenAddress'),
+      value: (tokenAddress && tokenAddress.trim() !== '') ? (
+        <div className="w-full flex justify-end text-y-500">
+          <Link
+            href={socialLinks?.network || ''}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <NewCardIcon />
+          </Link>
+          <span className="ml-[16px]">{cutAddress(tokenAddress)}</span>
+        </div>
+      ) : <span className="ml-[16px]">{t('cards.tbaInfo')}</span>,
+    },
+    {
+      id: 'endsIn',
+      label: new Date(idoEnds) >= new Date() ? t('cards.endsIn') : t('cards.endedInfo'),
+      value: (
+        <span className="text-c-500" suppressHydrationWarning>
+          {new Date(idoEnds) >= new Date() ? <CountdownTimer targetDate={new Date(idoEnds).getTime()} /> : ''}
+        </span>
+      ),
+      ongoingStatus: new Date(idoEnds) >= new Date() && new Date() > new Date(idoStarts),
+    },
+    {
+      id: 'totalLockedCATA',
+      label: t('cards.totalLockedCATA'),
+      value: (
+        (totalLockedCATA && totalLockedCATA.trim() !== '')
+          ? <CryptoCurrencyFormatter value={parseFloat(totalLockedCATA)} currency="" />
+          : <span>{t('cards.calculatingInfo')}</span>
+      ),
+      hidden: new Date(idoEnds) >= new Date(),
+      ongoingStatus: new Date(idoEnds) <= new Date(),
+    },
+  ];
 
   const imageUrl = `${process.env.NEXT_PUBLIC_CMS_ADDRESS}${thumbnail?.url || url || ''}` || '';
 
@@ -299,20 +302,30 @@ const ProjectDetails: FC<ProjectDetailsProps> = async ({params}) => {
 
             {/* Not started yet */}
             {new Date(idoStarts) >= new Date() && (
-            <InfoCard info={{
-              label: t('cards.startsIn'),
-              value: (
-                <span className="text-y-500" suppressHydrationWarning>
-                  <CountdownTimer targetDate={new Date(idoStarts).getTime()} />
-                </span>
-              ),
-            }}
-            />
+              <InfoCard info={{
+                label: t('cards.startsIn'),
+                value: (
+                  <span className="text-y-500" suppressHydrationWarning>
+                    <CountdownTimer targetDate={new Date(idoStarts).getTime()} />
+                  </span>
+                ),
+              }}
+              />
             )}
 
             {/* Started */}
-            {setDateStatuses(idoEnds, idoStarts) === DURING
-                            && <StartedProject />}
+            {setDateStatuses(idoEnds, idoStarts) === DURING && <StartedProject />}
+
+            {/* Ended */}
+            {(setDateStatuses(claimStarts, idoEnds) === DURING || setDateStatuses(claimStarts, idoEnds) === AFTER)
+              && (
+              <EndedProject data={{
+                token,
+                withdrawalContractAddress,
+                slug,
+              }}
+              />
+              )}
           </div>
         </div>
       </div>
